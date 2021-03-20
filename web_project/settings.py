@@ -76,8 +76,8 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'root',
-        'USER': 'zinc-presence-308217:us-central1:unisearch',
+        'NAME': 'data',
+        'USER': 'root',
         'PASSWORD': 'designdevelop2021',
         'HOST': '104.155.128.146',
         'PORT': '3306',
