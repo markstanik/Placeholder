@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'web_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'root',
+        'USER': 'zinc-presence-308217:us-central1:unisearch',
+        'PASSWORD': 'designdevelop2021',
+        'HOST': '104.155.128.146',
+        'PORT': '3306',
     }
 }
 
