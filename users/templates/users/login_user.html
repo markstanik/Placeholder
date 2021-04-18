@@ -1,0 +1,67 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+<!--
+    <h1>Login</h1>
+    <form class='site-form' action="{% url 'users:login_org' %}" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}">
+        {% endif %}
+        <input class="sub_button" type="submit" value="Login">
+    </form>
+-->
+<section class="page-title bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+
+          <h1 class="text-capitalize mb-4 text-lg">Get connected.</h1>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="{% url 'users:login_user' %}" class="text-white">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding: 100px 0;">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 mx-auto">
+				<div class="text-center p-5 shadow rounded">
+					<h2 class="mb-3"> <span class="text-color">Login</span> <br> <small> Reconnect with developers or organizations </small></h2>
+                    <form method="POST" action="{% url 'users:login_user' %}">
+                        {% csrf_token %}
+
+                        <div class="form-group text-left">
+                            <label for="id_username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                        <div class="form-group text-left">
+                            <label for="id_password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="etc-login-form text-right">
+                            <small> <a href="https://xkcd.com/1093/">Forgot my password</a></small>
+
+                        </div>
+                        {% if form.errors %}
+                            <div class="alert alert-danger" role="alert">
+                              Your username and/or password didn't match. Please try again.
+                            </div>
+                        {% endif %}
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                        <div class="etc-login-form2">
+                            <p style="margin-top:0.5em"><a href="{% url 'users:signup_user' %}">New Developer?</a> <a href="{% url 'users:signup_org' %}">New Organization?</a></p>
+                        </div>
+                    </form>
+                    </div>
+
+			</div>
+		</div>
+	</div>
+</section>
+{%endblock%}
