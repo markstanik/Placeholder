@@ -16,18 +16,6 @@ class CreateExtendedUser(forms.ModelForm):
         }
 
 
-class CreateOrg(forms.ModelForm):
-    class Meta:
-        model = models.Organization
-        fields = ['email', 'organization_name', 'description', 'image']
-        widgets = {
-            'email': forms.TextInput(attrs={'class': 'form-control'}),
-            'organization_name': forms.TextInput(attrs={'class': "form-control"}),
-            'description': forms.Textarea(attrs={'class': 'form-control'}),
-            'image': forms.TextInput(attrs={'class': 'form-control'})
-        }
-
-
 class UserForm(forms.ModelForm):
     class Meta:
         model = User

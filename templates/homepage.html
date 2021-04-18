@@ -1,162 +1,515 @@
-{% extends 'base_layout.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CollegeConnect</title>
 
-<!-- Slider Start -->
-<section class="slider">
-	<div class="container">
+  {% load static%}
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+  <link href="{%static 'css/font-awesome.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/bootstrap-datetimepicker.min.css'%}" rel="stylesheet"> 
+  <link href="{%static 'css/flexslider.css'%}" rel="stylesheet"> 
+  <link href="{%static 'css/templatemo-style.css'%}" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body class="tm-gray-bg">
+  	<!-- Header -->
+  	<div class="tm-header">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+  					<a href="#" class="tm-site-name">CollegeConnect</a>	
+  				</div>
+	  			<div class="col-lg-6 col-md-8 col-sm-9">
+	  				<div class="mobile-menu-icon">
+		              <i class="fa fa-bars"></i>
+		            </div>
+	  				<nav class="tm-nav">
+						<ul>
+							<li><a href="{% url 'home'%}">Home</a></li>
+							<li><a href="{% url 'about'%}">About Us</a></li>
+						</ul>
+					</nav>		
+	  			</div>				
+  			</div>
+  		</div>	  	
+  	</div>
+	
+	<!-- Banner -->
+	<section class="tm-banner">
+		<!-- Flexslider -->
+		<div class="flexslider flexslider-banner">
+		  <ul class="slides">
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">Tour</span> Programs</h1>
+					<p class="tm-banner-subtitle">For Your Destinations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="{%static 'img/banner-2.jpg'%}" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Lorem <span class="tm-yellow-text">Ipsum</span> Dolor</h1>
+					<p class="tm-banner-subtitle">Wonderful Destinations</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="{%static 'img/banner-3.jpg'%}" />
+		    </li>
+		    <li>
+			    <div class="tm-banner-inner">
+					<h1 class="tm-banner-title">Proin <span class="tm-yellow-text">Gravida</span> Nibhvell</h1>
+					<p class="tm-banner-subtitle">Velit Auctor</p>
+					<a href="#more" class="tm-banner-link">Learn More</a>	
+				</div>
+		      <img src="{%static 'img/banner-1.jpg'%}" />
+		    </li>
+		  </ul>
+		</div>			
+	</section>
+
+	<!-- gray bg -->	
+	<section class="container tm-home-section-1" id="more">
 		<div class="row">
-			<div class="col-lg-9 col-md-10">
-				<div class="block">
-					<span class="d-block mb-3 text-white text-capitalize">Help the community</span>
-					<h1 class="animated fadeInUp mb-5">We connect <br>projects that matter <br>with people that care.</h1>
-					<a href="{% url 'posts:view_listings' %}" target="_blank" class="btn btn-main animated fadeInUp btn-round-full">View Listings<i
-							class="btn-icon fa fa-angle-right ml-2"></i></a>
-				</div>
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<!-- Nav tabs -->
+				<div class="tm-home-box-1">
+					<ul class="nav nav-tabs tm-white-bg" role="tablist" id="hotelCarTabs">
+					    <li role="presentation">
+					    	<a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a>
+					    </li>
+
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					    <div role="tabpanel" class="tab-pane fade in active tm-white-bg" id="hotel">
+					    	<div class="tm-search-box effect2">
+								<form action="#" method="post" class="hotel-search-form">
+									<div class="tm-form-inner">
+										<div class="form-group">
+							            	 <select class="form-control">
+							            	 	<option value="">-- Size of School -- </option>
+							            	 	<option value="5000">Small (<5000 students)</option>
+												<option value="10,000">Medium (<10,000 students)</option>
+												<option value="15,000">Large (<15,000 students)</option>
+											</select> 
+							          	</div>
+							          	<div class="form-group">
+							                <select class="form-control">
+												<option value="">-- Location (State) -- </option>
+												<option value="AL">AL</option>
+												<option value="AK">AK</option>
+												<option value="AZ">AZ</option>
+												<option value="AR">AR</option>
+												<option value="CA">CA</option>
+												<option value="CO">CO</option>
+												<option value="CT">CT</option>
+												<option value="DE">DE</option>
+												<option value="FL">FL</option>
+												<option value="GA">GA</option>
+												<option value="HI">HI</option>
+												<option value="ID">ID</option>
+												<option value="IL">IL</option>
+												<option value="IN">IN</option>
+												<option value="IA">IA</option>
+												<option value="KS">KS</option>
+												<option value="KY">KY</option>
+												<option value="LA">LA</option>
+												<option value="ME">ME</option>
+												<option value="MD">MD</option>
+												<option value="MA">MA</option>
+												<option value="MI">MI</option>
+												<option value="MN">MN</option>
+												<option value="MS">MS</option>
+												<option value="MO">MO</option>
+												<option value="MT">MT</option>
+												<option value="NE">NE</option>
+												<option value="NV">NV</option>
+												<option value="NH">NH</option>
+												<option value="NJ">NJ</option>
+												<option value="NM">NM</option>
+												<option value="NY">NY</option>
+												<option value="NC">NC</option>
+												<option value="ND">ND</option>
+												<option value="OH">OH</option>
+												<option value="OK">OK</option>
+												<option value="OR">OR</option>
+												<option value="PA">PA</option>
+												<option value="RI">RI</option>
+												<option value="SC">SC</option>
+												<option value="SD">SD</option>
+												<option value="TN">TN</option>
+												<option value="TX">TX</option>
+												<option value="UT">UT</option>
+												<option value="VT">VT</option>
+												<option value="VA">VA</option>
+												<option value="WA">WA</option>
+												<option value="WV">WV</option>
+												<option value="WI">WI</option>
+												<option value="WY">WY</option>
+										   </select> 
+							            </div>
+							          	<div class="form-group">
+							                <select class="form-control">
+												<option value="">-- Majors/Programs -- </option>
+												<option value="Agriculture, Agriculture Operations, and Related Sciences">Agriculture, Agriculture Operations, and Related Sciences</option>
+											    <option value="Architecture and Related Services">Architecture and Related Services</option>
+											    <option value="Area, Ethnic, Cultural, Gender, and Group Studies">Area, Ethnic, Cultural, Gender, and Group Studies</option>
+											    <option value="Aviation">Aviation</option>
+												<option value="Biological and Biomedical Sciences">Biological and Biomedical Sciences</option>
+												<option value="Business, Management, Marketing, and Related Support Services">Business, Management, Marketing, and Related Support Services</option>
+												<option value="Communication, Journalism, and Related Programs">Communication, Journalism, and Related Programs</option>
+												<option value="Communications Technologies/technicians and Support Services">Communications Technologies/technicians and Support Services</option>
+												<option value="Computer and Information Sciences and Support Services">Computer and Information Sciences and Support Services</option>
+												<option value="Construction Trades">Construction Trades</option>
+												<option value="Education">Education</option>
+												<option value="Engineering Technologies and Engineering-Related Fields">Engineering Technologies and Engineering-Related Fields</option>
+												<option value="Engineering">Engineering</option>
+												<option value="English Language and Literature/letters">English Language and Literature/letters</option>
+												<option value="Family and Consumer Sciences/human Sciences">Family and Consumer Sciences/human Sciences</option>
+												<option value="Foreign Languages, Literatures, and Linguistics">Foreign Languages, Literatures, and Linguistics</option>
+												<option value="Health Professions and Related Programs">Health Professions and Related Programs</option>
+												<option value="History">History</option>
+												<option value="Homeland Security, Law Enforcement, Firefighting">Homeland Security, Law Enforcement, Firefighting</option>
+												<option value="Human Services">Human Services</option>
+												<option value="Legal Professions and Studies">Legal Professions and Studies</option>
+												<option value="Liberal Arts and Sciences Studies and Humanities">Liberal Arts and Sciences Studies and Humanities</option>
+												<option value="Library Science">Library Science</option>
+												<option value="Mathematics and Statistics">Mathematics and Statistics</option>
+												<option value="Mechanic and Repair Technologies/technicians">Mechanic and Repair Technologies/technicians</option>
+												<option value="Military Technologies and Applied Sciences">Military Technologies and Applied Sciences</option>
+												<option value="Multi/interdisciplinary Studies">Multi/interdisciplinary Studies</option>
+												<option value="Natural Resources and Conservation">Natural Resources and Conservation</option>
+												<option value="Parks, Recreation, Leisure, and Fitness Studies">Parks, Recreation, Leisure, and Fitness Studies</option>
+												<option value="Personal and Culinary Services">Personal and Culinary Services</option>
+												<option value="Philosophy and Religious Studies">Philosophy and Religious Studies</option>
+												<option value="Physical Sciences">Physical Sciences</option>
+												<option value="Precision Production">Precision Production</option>
+												<option value="Psychology">Psychology</option>
+												<option value="Science Technologies/technicians">Science Technologies/technicians</option>
+												<option value="Social Sciences">Social Sciences</option>
+												<option value="Theology and Religious Vocations">Theology and Religious Vocations</option>
+												<option value="Transportation and Materials Moving">Transportation and Materials Moving</option>
+												<option value="Visual and Performing Arts">Visual and Performing Arts</option>
+												<option value="">Other</option>
+										   </select> 
+							            </div>
+							            <div class="form-group margin-bottom-0">
+							                <select class="form-control">
+							            	 	<option value="">-- Annual Tuition -- </option>
+							            	 	<option value="15000">$ (<$15,000)</option>
+												<option value="30000">$$ (<$30,000)</option>
+												<option value="45000">$$$ (<$45,000)</option>
+												<option value="">$$$$ (>$45,000)</option>
+											</select> 
+							            </div>
+									</div>							
+						            <div class="form-group tm-yellow-gradient-bg text-center">
+						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+						            </div>  
+								</form>
+							</div>
+					    </div>
+					    <div role="tabpanel" class="tab-pane fade tm-white-bg" id="car">
+							<div class="tm-search-box effect2">
+								<form action="#" method="post" class="hotel-search-form">
+									<div class="tm-form-inner">
+										<div class="form-group">
+							            	 <select class="form-control">
+							            	 	<option value="">-- Select Model -- </option>
+							            	 	<option value="shangrila">BMW</option>
+												<option value="chatrium">Mercedes-Benz</option>
+												<option value="fourseasons">Toyota</option>
+												<option value="hilton">Honda</option>
+											</select> 
+							          	</div>
+							          	<div class="form-group">
+							                <div class='input-group date-time' id='datetimepicker3'>
+							                    <input type='text' class="form-control" placeholder="Pickup Date" />
+							                    <span class="input-group-addon">
+							                        <span class="fa fa-calendar"></span>
+							                    </span>
+							                </div>
+							            </div>
+							          	<div class="form-group">
+							                <div class='input-group date-time' id='datetimepicker4'>
+							                    <input type='text' class="form-control" placeholder="Return Date" />
+							                    <span class="input-group-addon">
+							                        <span class="fa fa-calendar"></span>
+							                    </span>
+							                </div>
+							            </div>	
+							            <div class="form-group">
+							            	 <select class="form-control">
+							            	 	<option value="">-- Options -- </option>
+							            	 	<option value="">Child Seat</option>
+												<option value="">GPS Navigator</option>
+												<option value="">Insurance</option>
+											</select> 
+							          	</div>						           
+									</div>							
+						            <div class="form-group tm-yellow-gradient-bg text-center">
+						            	<button type="submit" name="submit" class="tm-yellow-btn">Check Now</button>
+						            </div>  
+								</form>
+							</div>
+					    </div>				    
+					</div>
+				</div>								
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
+					<img src="{%static 'img/index-01.jpg'%}" alt="image" class="img-responsive">
+					<a href="#">
+						<div class="tm-green-gradient-bg tm-city-price-container">
+							<span>New York</span>
+							<span>$6,600</span>
+						</div>	
+					</a>			
+				</div>				
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-6">
+				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
+					<img src="{%static 'img/index-02.jpg'%}" alt="image" class="img-responsive">
+					<a href="#">
+						<div class="tm-red-gradient-bg tm-city-price-container">
+							<span>Paris</span>
+							<span>$4,200</span>
+						</div>	
+					</a>					
+				</div>				
 			</div>
 		</div>
-	</div>
-</section>
-<!-- Section Intro Start -->
-
-<section class="section intro">
-	<div class="container">
-		<div class="row ">
-			<div class="col-lg-8">
-				<div class="section-title">
-					<span class="h6 text-color ">We are coders, just like you!</span>
-					<h2 class="mt-3 content-title">We work with charities and <br> non-profits to find volunteer programming oppurtunities
-					</h2>
+	
+		<div class="section-margin-top">
+			<div class="row">				
+				<div class="tm-section-header">
+					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Our Tours</h2></div>
+					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
 				</div>
-				<a href="{% url 'users:signup_user' %}" target="_blank" class="btn btn-main animated fadeInUp btn-round-full">Register Developer<i
-					class="btn-icon fa fa-angle-right ml-2"></i></a>
 			</div>
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="tm-tours-box-1">
+						<img src="{%static 'img/tours-03.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-1-info">
+							<div class="tm-tours-box-1-info-left">
+								<p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
+								<p class="gray-text">28 March 2084</p>
+							</div>
+							<div class="tm-tours-box-1-info-right">
+								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+							</div>							
+						</div>
+						<div class="tm-tours-box-1-link">
+							<div class="tm-tours-box-1-link-left">
+								Duration: 8 days
+							</div>
+							<a href="#" class="tm-tours-box-1-link-right">
+								$2,200								
+							</a>							
+						</div>
+					</div>					
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="tm-tours-box-1">
+						<img src="{%static 'img/tours-04.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-1-info">
+							<div class="tm-tours-box-1-info-left">
+								<p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
+								<p class="gray-text">26 March 2084</p>
+							</div>
+							<div class="tm-tours-box-1-info-right">
+								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+							</div>							
+						</div>
+						<div class="tm-tours-box-1-link">
+							<div class="tm-tours-box-1-link-left">
+								Duration: 9 days
+							</div>
+							<a href="#" class="tm-tours-box-1-link-right">
+								$1,800								
+							</a>							
+						</div>
+					</div>					
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="tm-tours-box-1">
+						<img src="{%static 'img/tours-05.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-1-info">
+							<div class="tm-tours-box-1-info-left">
+								<p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
+								<p class="gray-text">24 March 2084</p>
+							</div>
+							<div class="tm-tours-box-1-info-right">
+								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+							</div>							
+						</div>
+						<div class="tm-tours-box-1-link">
+							<div class="tm-tours-box-1-link-left">
+								Duration: 8 days
+							</div>
+							<a href="#" class="tm-tours-box-1-link-right">
+								$1,600								
+							</a>							
+						</div>
+					</div>					
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					<div class="tm-tours-box-1">
+						<img src="{%static 'img/tours-06.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-1-info">
+							<div class="tm-tours-box-1-info-left">
+								<p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
+								<p class="gray-text">22 March 2084</p>
+							</div>
+							<div class="tm-tours-box-1-info-right">
+								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+							</div>							
+						</div>
+						<div class="tm-tours-box-1-link">
+							<div class="tm-tours-box-1-link-left">
+								Duration: 5 days
+							</div>
+							<a href="#" class="tm-tours-box-1-link-right">
+								$1,200								
+							</a>							
+						</div>
+					</div>					
+				</div>
+			</div>		
 		</div>
-	</div>
-
-</section>
-
-<!-- Section Intro END -->
-<!-- Section About Start -->
-
-<section class="section about position-relative">
-	<div class="bg-about"></div>
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 offset-lg-6 offset-md-0">
-				<div class="about-item ">
-					<h2 class="mt-3 mb-4 position-relative content-title">If you are an organization that needs volunteer coders ... </h2>
-					<div class="about-content">
-						<h4 class="mb-3 position-relative">We are the solution</h4>
-						<p class="mb-5">Create a listing explaining your mission and what work you need done. <br> Once we get a passionate coder interested in your project, we will contact you!</p>
-
-						<a href="{% url 'users:signup_org' %}" class="btn btn-main btn-round-full">Get started</a>
+	</section>		
+	
+	<!-- white bg -->
+	<section class="tm-white-bg section-padding-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="tm-section-header section-margin-top">
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>
+					<div class="col-lg-4 col-md-6 col-sm-6"><h2 class="tm-section-title">Testimonials</h2></div>
+					<div class="col-lg-4 col-md-3 col-sm-3"><hr></div>	
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="tm-tours-box-2">						
+						<img src="{%static 'img/index-03.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-2-info">
+							<h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
+							<img src="{%static 'img/rating.png'%}" alt="image" class="margin-bottom-5">
+							<p>28 March 2084</p>	
+						</div>						
+						<a href="#" class="tm-tours-box-2-link">Book Now</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="tm-tours-box-2">						
+						<img src="{%static 'img/index-04.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-2-info">
+							<h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
+							<img src="{%static 'img/rating.png'%}" alt="image" class="margin-bottom-5">
+							<p>26 March 2084</p>	
+						</div>						
+						<a href="#" class="tm-tours-box-2-link">Book Now</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="tm-tours-box-2">						
+						<img src="{%static 'img/index-05.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-2-info">
+							<h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
+							<img src="{%static 'img/rating.png'%}" alt="image" class="margin-bottom-5">
+							<p>24 March 2084</p>	
+						</div>						
+						<a href="#" class="tm-tours-box-2-link">Book Now</a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+					<div class="tm-tours-box-2">						
+						<img src="{%static 'img/index-06.jpg'%}" alt="image" class="img-responsive">
+						<div class="tm-tours-box-2-info">
+							<h3 class="margin-bottom-15">Proin Gravida Nibhvel Lorem Quis Bind</h3>
+							<img src="{%static 'img/rating.png'%}" alt="image" class="margin-bottom-5">
+							<p>22 March 2084</p>	
+						</div>						
+						<a href="#" class="tm-tours-box-2-link">Book Now</a>
 					</div>
 				</div>
 			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="home-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
+					Morbi accumsaipsu m velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat.
+					</p>					
+				</div>
+			</div>	
 		</div>
-	</div>
-</section>
-
-<!-- Section About End -->
-<!-- section Counter Start -->
-<section class="section counter">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">1730</span> +</h3>
-					<p class="text-muted">Project Done</p>
-				</div>
+	</section>
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+				<p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name 
+                
+                | Designed by templatemo</p>
 			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">2 </span>M </h3>
-					<p class="text-muted">Users</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center mb-5 mb-lg-0">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">38</span></h3>
-					<p class="text-muted">Availble States</p>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6 col-sm-6">
-				<div class="counter-item text-center">
-					<h3 class="mb-0"><span class="counter-stat font-weight-bold">153</span></h3>
-					<p class="text-muted">Partnered Organizations</p>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<!-- section Counter End  -->
+		</div>		
+	</footer>
+	<script type="text/javascript" src="{%static 'js/jquery-1.11.2.min.js'%}"></script>      		<!-- jQuery -->
+  	<script type="text/javascript" src="{%static 'js/moment.js'%}"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="{%static 'js/bootstrap.min.js'%}"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="{%static 'js/bootstrap-datetimepicker.min.js'%}"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="{%static 'js/jquery.flexslider-min.js'%}"></script>
+   	<script type="text/javascript" src="{%static 'js/templatemo-script.js'%}"></script>      		<!-- Templatemo Script -->
+	<script>
+		// HTML document is loaded. DOM is ready.
+		$(function() {
 
-<!-- Section Testimonial Start -->
-<section class="section testimonial">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-7 ">
-				<div class="section-title">
-					<span class="h6 text-color">Clients testimonial</span>
-					<h2 class="mt-3 content-title">Check what other users say about us</h2>
-				</div>
-			</div>
-		</div>
-	</div>
+			$('#hotelCarTabs a').click(function (e) {
+			  e.preventDefault()
+			  $(this).tab('show')
+			})
 
-	<div class="container">
-		<div class="row testimonial-wrap">
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">This was a great oppurtunity for me to use my knowledge to better my community. I was paired with an organization that sought to help dogs get out of pounds. I have never had a more rewarding experience that I also helped me land a new job!</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Milos Seskar</h5>
-						<p>User</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">CodersConnect gave me a great chance to make a difference from my house during the Covid-19 outbreak.</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Mark Stanik</h5>
-						<p>User</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">We were really struggling to find people willing to help research Coronavirus treatments and cures. CodersConnect allowed us to spend our time researching while they dealt with getting new volunteers.</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">Covaid-19</h5>
-						<p>Non-profit Organization</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-item position-relative">
-				<i class="ti-quote-left text-color"></i>
-
-				<div class="testimonial-item-content">
-					<p class="testimonial-text">CodersConnect really helped us find the right people to flesh out our new database. We are still in contact with those passionate programmers today!</p>
-
-					<div class="testimonial-author">
-						<h5 class="mb-0 text-capitalize">New Brunswick Blood Bank</h5>
-						<p>Organization</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-{% endblock %}
-<!-- Section Testimonial End -->
+        	$('.date').datetimepicker({
+            	format: 'MM/DD/YYYY'
+            });
+            $('.date-time').datetimepicker();
+           
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+		  	$('a[href*=#]:not([href=#])').click(function() {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top
+			        }, 1000);
+			        return false;
+			      }
+			    }
+		  	});
+		});
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	  		
+		    $('.flexslider').flexslider({
+			    controlNav: false
+		    });
+	  	});
+	</script>
+ </body>
+ </html>

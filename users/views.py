@@ -20,8 +20,6 @@ def login_user(request):
     return render(request, "users/login_user.html", {"form": form})
 
 
-
-
 def signup_user(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -44,39 +42,6 @@ def logout_user(request):
     if request.method == "POST":
         logout(request)
         return redirect('home')
-
-
-def login_org(request):
-    if request.method == "POST":
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            if 'next' in request.POST:
-                return redirect(request.POST.get('next'))
-            else:
-                return redirect('home')
-    else:
-        form = AuthenticationForm()
-    return render(request, "users/login_org.html", {"form": form})
-
-
-def signup_org(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        form2 = forms.CreateOrg(request.POST)
-        if form.is_valid() and form2.is_valid():
-            user = form.save(commit=False)
-            orgform = form2.save(commit=False)
-            user.save()
-            orgform.user = user
-            orgform.save()
-            login(request, user)
-            return redirect('home')
-    else:
-        form = UserCreationForm()
-        form2 = forms.CreateOrg()
-    return render(request, "users/signup_org.html", {"form": form, "form2": form2})
 
 
 def delete_user(request):
@@ -135,14 +100,10 @@ def update_info(request):
             else:
                 print("INVALID")
                 # form = UserCreationForm(instance=request.user)
-                # form2 = forms.CreateOrg(instance=request.user.organization)
                 return render(request, "users/update_info.html", {"form": form, "form2": form2})
     else:
         form = UserCreationForm(instance=request.user)
-        try:
-            extuser = request.user.extendeduser
-            form2 = forms.CreateExtendedUser(instance=extuser)
-        except Exception as e:  # noqa
-            orguser = request.user.organization # noqa
-            form2 = forms.CreateOrg(instance=orguser)
+        extuser = request.user.extendeduser
+        form2 = forms.CreateExtendedUser(instance=extuser)
         return render(request, "users/update_info.html", {"form": form, "form2": form2})
+        

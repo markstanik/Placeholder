@@ -11,10 +11,3 @@ class ExtendedUser(models.Model):
     image = models.TextField(default="http://via.placeholder.com/150")
 
 
-class Organization(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.EmailField()
-    organization_name = models.CharField(max_length=55, verbose_name="Organization name:")
-    description = models.TextField(default="This organization has not provided a description.")
-    image = models.TextField(default="http://via.placeholder.com/150")
-    #organization_blurb = models.TextFeild(max_length=200)

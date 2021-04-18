@@ -49,7 +49,7 @@
             <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
           </li>
 		  <li class="nav-item active">
-            <a class="nav-link" href="{% url 'posts:view_listings' %}">Listings <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{}">Listings <span class="sr-only">(current)</span></a>
           </li>
 			{% if user.is_authenticated %}
           <li class="nav-item dropdown">
@@ -57,14 +57,10 @@
               aria-expanded="false">Hi, {% if user.extendeduser %}{{user.extendeduser.firstname}}{% elif user.organization %}{{user.organization.organization_name}}{% else %}{{user.username}}{% endif %} <i class="fas fa-caret-down"></i>
 			</a>
             <ul class="dropdown-menu" aria-labelledby="dropdown05">
-              <li><a class="dropdown-item" href="{% url 'users:update_info' %}">My Account</a></li>
+              <li><a class="dropdown-item" href="{}">My Account</a></li>
 				{% if user.extendeduser %}
-              <li><a class="dropdown-item" href="{% url 'posts:view_jobs_accepted' %}">My Jobs</a></li>
-              <li><a class="dropdown-item" href="{% url 'posts:view_jobs' %}">My Applications</a></li>
-				{% elif user.organization %}
-				<li><a class="dropdown-item" href="{% url 'posts:manage_post' %}">My Listings</a></li>
-				<li><a class="dropdown-item" href="{% url 'posts:view_connections' %}">My Connections</a></li>
-				{% else %}
+              <li><a class="dropdown-item" href="{}">My Jobs</a></li>
+              <li><a class="dropdown-item" href="{}">My Applications</a></li>
 				{%endif%}
 				<form id="UserLogout" action="/users/logout/" method="POST" style="display:none">
                   {% csrf_token %}
