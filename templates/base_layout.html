@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="non-profit, charity, programming, volunteer">
+
+  <meta name="author" content="Rutgers Honors Academy">
+      {% load static%}
+  <title>CodersConnect</title>
+
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{%static 'plugins/bootstrap/css/bootstrap.min.css'%}">
+  <!-- Icon Font Css -->
+  <link rel="stylesheet" href="{% static 'plugins/themify/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome/css/all.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/magnific-popup/dist/magnific-popup.css' %}">
+  <!-- Owl Carousel CSS -->
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/slick-carousel/slick/slick-theme.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+
+<!-- Header Start -->
+<header class="navigation">
+  <nav class="navbar navbar-expand-lg  py-4" id="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'home' %}">
+        Coders<span>Connect</span>
+      </a>
+
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09"
+        aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navbarsExample09">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+		  </li>
+			<li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+          </li>
+		  <li class="nav-item active">
+            <a class="nav-link" href="{% url 'posts:view_listings' %}">Listings <span class="sr-only">(current)</span></a>
+          </li>
+			{% if user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Hi, {% if user.extendeduser %}{{user.extendeduser.firstname}}{% elif user.organization %}{{user.organization.organization_name}}{% else %}{{user.username}}{% endif %} <i class="fas fa-caret-down"></i>
+			</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown05">
+              <li><a class="dropdown-item" href="{% url 'users:update_info' %}">My Account</a></li>
+				{% if user.extendeduser %}
+              <li><a class="dropdown-item" href="{% url 'posts:view_jobs_accepted' %}">My Jobs</a></li>
+              <li><a class="dropdown-item" href="{% url 'posts:view_jobs' %}">My Applications</a></li>
+				{% elif user.organization %}
+				<li><a class="dropdown-item" href="{% url 'posts:manage_post' %}">My Listings</a></li>
+				<li><a class="dropdown-item" href="{% url 'posts:view_connections' %}">My Connections</a></li>
+				{% else %}
+				{%endif%}
+				<form id="UserLogout" action="/users/logout/" method="POST" style="display:none">
+                  {% csrf_token %}
+                </form>
+              <li><a class="dropdown-item" onclick="$('#UserLogout').submit(); return false;">Sign Out</a></li>
+            </ul>
+          </li>
+			{% else %}
+			<form class="form-lg-inline my-2 my-md-0 ml-lg-4 text-center">
+            <a href="{% url 'users:login_user' %}" class="btn btn-solid-border btn-round-full">Login</a>
+          </form>
+			{% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<!-- Header Close -->
+
+<!-- main wrapper start -->
+<div class="main-wrapper">
+
+{% block content %}
+	{% endblock %}
+
+<footer class="footer section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="widget">
+          <h4 class="text-capitalize mb-4">Info</h4>
+
+          <ul class="list-unstyled footer-menu lh-35">
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-6">
+        <div class="widget">
+          <h4 class="text-capitalize mb-4">Quick Links</h4>
+
+          <ul class="list-unstyled footer-menu lh-35">
+            <li><a href="{% url 'about' %}">About</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-lg-3 ml-auto col-sm-6">
+        <div class="widget">
+          <div class="logo mb-4">
+            <h3>Coders<span>Connect</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-btm pt-4">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="copyright">
+            &copy; Copyright Reserved to <span class="text-color">CodersConnect</span> by <a href="#"
+              target="_blank">D&D Group 10</a>
+          </div>
+        </div>
+        <div class="col-lg-6 text-left text-lg-right">
+          <ul class="list-inline footer-socials">
+            <li class="list-inline-item"><a href="https://www.facebook.com/jean.p.antoine"><i
+                  class="ti-facebook mr-2"></i>Facebook</a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/elonmusk"><i
+                  class="ti-twitter mr-2"></i>Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+<!-- main wrapper end -->
+
+<!--
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="{% static 'plugins/jquery/jquery.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+<!-- Bootstrap 4.3.1 -->
+<script src="{% static 'plugins/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--  Magnific Popup-->
+<script src="{% static 'plugins/magnific-popup/dist/jquery.magnific-popup.min.js' %}"></script>
+<!-- Slick Slider -->
+<script src="{% static 'plugins/slick-carousel/slick/slick.min.js' %}"></script>
+<!-- Counterup -->
+<script src="{% static 'plugins/counterup/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'plugins/counterup/jquery.counterup.min.js' %}"></script>
+
+
+
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>
