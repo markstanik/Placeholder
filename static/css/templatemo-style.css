@@ -65,7 +65,15 @@ body { overflow-x: hidden; }
 }
 
 /* Banner */
+.tm-banner-img{
+	display: flex;
+	width: 100%;
+	height: auto;
+	object-fit:cover;
+	margin-bottom: 100px;
+}
 .tm-banner-inner {
+	width: 100%;
     height: auto;
     margin: auto;
     position: absolute;
@@ -175,7 +183,7 @@ body { overflow-x: hidden; }
 	padding: 30px 0;
 	font-size: 16px;
 	color: white;
-	text-transform: uppercase;
+	text-transform: auto;
 	-webkit-justify-content: space-around;
 	    -ms-flex-pack: distribute;
 	        justify-content: space-around;
@@ -432,13 +440,13 @@ hr { border-top: 1px solid #111010; }
 	width: 100%;
 }
 .tm-tours-box-2-info h3 {
-	font-size: 14px;
-	text-transform: uppercase;
+	font-size: 20px;
+	text-transform: auto;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #b1b1b1;
 }
 .tm-tours-box-2-info {
-    padding: 20px;
+    padding: 30px;
     border-left: 1px solid #E4E4E4;
     border-right: 1px solid #E4E4E4;
 }
@@ -509,7 +517,7 @@ hr { border-top: 1px solid #111010; }
 	color: white;
 	padding: 20px;
 	text-align: center;
-	text-transform: uppercase;
+	text-transform: auto;
 	font-weight: 300;
 }
 .tm-testimonials-content {
@@ -538,7 +546,7 @@ hr { border-top: 1px solid #111010; }
 	width: 100%;
 }
 .tm-about-box-2-title {
-	text-transform: uppercase;
+	text-transform: lowercase;
 	text-align: left;
 	margin-bottom: 30px;
 }
@@ -550,7 +558,7 @@ hr { border-top: 1px solid #111010; }
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
 	text-align: right;
-	text-transform: uppercase;
+	text-transform: auto;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
@@ -610,7 +618,7 @@ hr { border-top: 1px solid #111010; }
 }
 .contact-image { 
 	float: left; 
-	widthh: 100%;
+	width: 100%;
 	max-width: 494px;
 }
 .contact-text {
@@ -809,7 +817,7 @@ hr { border-top: 1px solid #111010; }
 	    padding: 6px 15px;
 	    z-index: 1000;
 	}
-	.- { height: 400px;	}
+	/*.- { height: 400px;	}*/
 	.tm-banner-title { font-size: 40px;	}
 	.tm-banner-subtitle { font-size: 24px; }
 	.tm-banner-inner { top: 0; }
