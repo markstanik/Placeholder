@@ -33,6 +33,6 @@ class ExtendedUser(models.Model):
     firstname = models.CharField(max_length=50, verbose_name="First Name:")
     lastname = models.CharField(max_length=50, verbose_name="Last Name:")
     major = models.TextField()
-    location = models.TextField()
+    location = models.TextField(verbose_name="Location (State)")
 
 
