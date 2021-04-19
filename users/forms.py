@@ -6,14 +6,14 @@ from django.contrib.auth.models import User
 class CreateExtendedUser(forms.ModelForm):
     class Meta:
         model = models.ExtendedUser
-        fields = ['email', 'firstname', 'lastname'] 
+        fields = ['email', 'firstname', 'lastname', 'major', 'location'] 
         # add major and location to fields
         widgets = {
             'email': forms.TextInput(attrs={'class': 'form-control'}),
             'firstname': forms.TextInput(attrs={'class': "form-control"}),
             'lastname': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'major': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'location': forms.TextInput(attrs={'class': 'form-control'})
+            'major': forms.TextInput(attrs={'class': 'form-control'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'})
         }
 
 

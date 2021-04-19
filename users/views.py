@@ -80,8 +80,8 @@ def update_info(request):
                 extuser.firstname = form2.cleaned_data['firstname']
                 extuser.email = form2.cleaned_data['email']
                 extuser.lastname = form2.cleaned_data['lastname']
-                extuser.description = form2.cleaned_data['description']
-                extuser.image = form2.cleaned_data['image']
+                extuser.major = form2.cleaned_data['major']
+                extuser.location = form2.cleaned_data['location']
                 extuser.save()
                 print("Login")
                 login(request, request.user)
@@ -102,8 +102,8 @@ def update_info(request):
                 request.user.save()
                 orguser.organization_name = form2.cleaned_data['organization_name']
                 orguser.email = form2.cleaned_data['email']
-                orguser.description = form2.cleaned_data['description']
-                orguser.image = form2.cleaned_data['image']
+                orguser.major = form2.cleaned_data['major']
+                orguser.location = form2.cleaned_data['location']
                 orguser.save()
                 login(request, request.user)
                 return redirect('home')

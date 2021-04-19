@@ -32,7 +32,7 @@ class ExtendedUser(models.Model):
     email = models.EmailField()
     firstname = models.CharField(max_length=50, verbose_name="First Name:")
     lastname = models.CharField(max_length=50, verbose_name="Last Name:")
-    description = models.TextField(default="This user has not provided an about me.")
-    image = models.TextField(default="http://via.placeholder.com/150")
+    major = models.TextField()
+    location = models.TextField()
 
 
