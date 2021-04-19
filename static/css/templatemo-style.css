@@ -541,6 +541,7 @@ hr {
   overflow: hidden;
 }
 .tm-tours-box-1-link-left {
+  color: white;
   background-color: #1ca7c8;
   padding: 20px 30px;
   float: left;

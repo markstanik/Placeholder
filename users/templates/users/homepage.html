@@ -11,7 +11,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">Your</span> College</h1>
 					<p class="tm-banner-subtitle">Pick the best college for you</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
+					<a href="{% url 'about'%}" class="tm-banner-link">Learn More</a>	
 				</div>
 				<div class = "tm-banner-img">
 					<img class = "img-responsive" src="{%static 'img/banner-1.jpg'%}" alt = "Responsive image"/>
@@ -22,7 +22,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">Be <span class="tm-yellow-text">Your</span>Self</h1>
 					<p class="tm-banner-subtitle">Be who you are</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
+					<a href="{% url 'users:signup_user'%}" class="tm-banner-link">Sign Up For Personalized Recommendations</a>	
 				</div>
 				<div class = "tm-banner-img">
 					<img class = "img-responsive" src="{%static 'img/banner-2.jpg'%}" alt = "Responsive image"/>	
@@ -32,7 +32,7 @@
 			    <div class="tm-banner-inner">
 					<h1 class="tm-banner-title">Find <span class="tm-yellow-text">Your</span> Home</h1>
 					<p class="tm-banner-subtitle">Let your environment make you thrive</p>
-					<a href="#more" class="tm-banner-link">Learn More</a>	
+					<a href="#more" class="tm-banner-link">View Our Featured Colleges</a>	
 				</div>
 				<div class = "tm-banner-img">
 		      <img class = "img-responsive" src="{%static 'img/banner-3.jpg'%}" alt = "Responsive image" />
@@ -194,7 +194,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-center">
 					<img src="{%static 'img/Rutgers.jpg'%}" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="https://rutgers.edu">
 						<div class="tm-green-gradient-bg tm-city-price-container">
 							<span>Rutgers University</span>
 							
@@ -205,7 +205,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-6">
 				<div class="tm-home-box-1 tm-home-box-1-2 tm-home-box-1-right">
 					<img src="{%static 'img/NJIT.jpg'%}" alt="image" class="img-responsive">
-					<a href="#">
+					<a href="https://njit.edu">
 						<div class="tm-red-gradient-bg tm-city-price-container">
 							<span>New Jersey Institute of Technology</span>
 						</div>	
@@ -218,28 +218,28 @@
 			<div class="row">				
 				<div class="tm-section-header">
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
-					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Alumni Reviews</h2></div>
+					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">Recommended Schools</h2></div>
 					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="{%static 'img/alumn-review-1.png'%}" alt="image" class="img-responsive">
+						<img src="{%static 'img/rutgers.jpeg'%}" alt="image" class="img-responsive">
 						<div class="tm-tours-box-1-info">
 							<div class="tm-tours-box-1-info-left">
-								<p class="text-uppercase margin-bottom-20">George Mason University</p>	
-								<p class="gray-text">Robert Peltz</p>
+								<p class="text-uppercase margin-bottom-20">Rutgers University</p>	
+								<p class="gray-text">Allen Chang</p>
 							</div>
 							<div class="tm-tours-box-1-info-right">
-								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+								<p class="gray-text tours-1-description">I loved my time here. It was the best environment for learning and succeeding.</p>	
 							</div>							
 						</div>
 						<div class="tm-tours-box-1-link">
 							<div class="tm-tours-box-1-link-left">
 								Posted: 3 weeks ago
 							</div>
-							<a href="#" class="tm-tours-box-1-link-right">
+							<a href="https://rutgers.edu" class="tm-tours-box-1-link-right">
 								More								
 							</a>							
 						</div>
@@ -247,21 +247,21 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="{%static 'img/alumn-review-2.png'%}" alt="image" class="img-responsive">
+						<img src="{%static 'img/stevens.jpeg'%}" alt="image" class="img-responsive">
 						<div class="tm-tours-box-1-info">
 							<div class="tm-tours-box-1-info-left">
-								<p class="text-uppercase margin-bottom-20">University of Wisconsin</p>	
+								<p class="text-uppercase margin-bottom-20">Stevens Institue of Technology</p>	
 								<p class="gray-text">Joseph Vangundy</p>
 							</div>
 							<div class="tm-tours-box-1-info-right">
-								<p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+								<p class="gray-text tours-1-description">Great local unversity. I really felt like I was part of a community.</p>	
 							</div>							
 						</div>
 						<div class="tm-tours-box-1-link">
 							<div class="tm-tours-box-1-link-left">
 								Posted: 1 month ago
 							</div>
-							<a href="#" class="tm-tours-box-1-link-right">
+							<a href="https://stevens.edu" class="tm-tours-box-1-link-right">
 								More								
 							</a>							
 						</div>
@@ -269,10 +269,10 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="{%static 'img/alumn-review-3.png'%}" alt="image" class="img-responsive">
+						<img src="{%static 'img/berkeley.jpeg'%}" alt="image" class="img-responsive">
 						<div class="tm-tours-box-1-info">
 							<div class="tm-tours-box-1-info-left">
-								<p class="text-uppercase margin-bottom-20">South Carolina State University</p>	
+								<p class="text-uppercase margin-bottom-20">Berkeley College-Woodland Park</p>	
 								<p class="gray-text">Mark Allen</p>
 							</div>
 							<div class="tm-tours-box-1-info-right">
@@ -283,7 +283,7 @@
 							<div class="tm-tours-box-1-link-left">
 								Posted: 1 week ago
 							</div>
-							<a href="#" class="tm-tours-box-1-link-right">
+							<a href="https://berkeleycollege.edu/index.html" class="tm-tours-box-1-link-right">
 								More								
 							</a>							
 						</div>
@@ -291,10 +291,10 @@
 				</div>
 				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 					<div class="tm-tours-box-1">
-						<img src="{%static 'img/alumn-review-4.png'%}" alt="image" class="img-responsive">
+						<img src="{%static 'img/eastwick.jpeg'%}" alt="image" class="img-responsive">
 						<div class="tm-tours-box-1-info">
 							<div class="tm-tours-box-1-info-left">
-								<p class="text-uppercase margin-bottom-20">Purchase College</p>	
+								<p class="text-uppercase margin-bottom-20">Eastwick College-Hackensack</p>	
 								<p class="gray-text">Alvin Flang</p>
 							</div>
 							<div class="tm-tours-box-1-info-right">
@@ -305,7 +305,7 @@
 							<div class="tm-tours-box-1-link-left">
 								Posted: 6 months ago
 							</div>
-							<a href="#" class="tm-tours-box-1-link-right">
+							<a href="https://eastwick.edu/" class="tm-tours-box-1-link-right">
 								More								
 							</a>							
 						</div>
@@ -371,13 +371,6 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<p class="home-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.
-					Morbi accumsaipsu m velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat.
-					</p>					
-				</div>
-			</div>	
 		</div>
 	</section>
 	{%endblock%}
