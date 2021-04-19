@@ -164,7 +164,7 @@ body {
 }
 .tm-home-section-1 {
   position: relative;
-  top: -50px;
+  top: -60px;
 }
 .tm-home-section-2 {
   position: relative;
@@ -409,7 +409,7 @@ hr {
   border-top: 1px solid #111010;
 }
 .tm-section-header {
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   overflow: hidden;
 }
 .tm-section-title {
@@ -610,6 +610,36 @@ hr {
 .about-section {
   margin-top: 150px;
 }
+.tm-about-box-0 {
+	background-color: white;
+	width: 255px;
+	height: 380px;
+	padding: 30px;
+	margin-left: 50px;
+	text-align: center;
+  }
+  .tm-about-box-0-img {
+	display: block;
+	margin: 0 auto 30px;
+	border-radius: 50%;
+	border: 5px solid #d4d4d4;
+	transition: all 0.3s ease;
+  }
+  .tm-about-box-0-img:hover,
+  .tm-about-box-0-img:focus {
+	border: 5px solid #e8ba0f;
+  }
+  .tm-about-box-0-title {
+	font-size: 17px;
+	font-style: italic;
+	text-transform: uppercase;
+	margin-bottom: 15px;
+  }
+  .tm-about-box-0-title span {
+	font-size: 14px;
+	font-style: normal;
+	text-transform: none;
+  }
 .tm-about-box-1 {
   background-color: white;
   width: 255px;
