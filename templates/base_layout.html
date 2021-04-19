@@ -29,7 +29,7 @@
   		<div class="container">
   			<div class="row">
   				<div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
-  					<a href="#" class="tm-site-name">CollegeConnect</a>	
+  					<a href="{% url 'home'%}" class="tm-site-name">CollegeConnect</a>	
   				</div>
 	  			<div class="col-lg-6 col-md-8 col-sm-9">
 	  				<div class="mobile-menu-icon">
@@ -40,11 +40,7 @@
 							<li><a href="{% url 'home'%}">Home</a></li>
 							<li><a href="{% url 'about'%}">About Us</a></li>
                             {% if user.is_authenticated %}
-                            <li>
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">Hi, {% if user.extendeduser %}{{user.extendeduser.firstname}}{% elif user.organization %}{{user.organization.organization_name}}{% else %}{{user.username}}{% endif %} <i class="fas fa-caret-down"></i>
-                                </a>
-                                <ul>
+                          
                                 <li><a class="dropdown-item" href="{}">My Account</a></li>
                                     <form id="UserLogout" action="/users/logout/" method="POST" style="display:none">
                                     {% csrf_token %}
@@ -53,9 +49,8 @@
                                 </ul>
                             </li>
                                 {% else %}
-                            <form>
-                                <a href="{% url 'users:login_user' %}" class="btn btn-solid-border btn-round-full">Login</a>
-                            </form>
+                               <li> <a href="{% url 'users:login_user' %}">Login</a></li>
+                               <li> <a href="{% url 'users:signup_user'%}">Sign up</a></li>
                                 {% endif %}
 						</ul>
 					</nav>		
@@ -77,9 +72,9 @@
     <footer class="tm-black-bg">
       <div class="container">
         <div class="row">
-          <p class="tm-copyright-text">Copyright &copy; 2084 Your Company Name 
+          <p class="tm-copyright-text">Copyright &copy; 2084 CollegeConnect 
                   
-                  | Designed by templatemo</p>
+            </p>
         </div>
       </div>		
     </footer>
