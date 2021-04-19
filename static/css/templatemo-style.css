@@ -720,7 +720,7 @@ hr {
   width: 100%;
 }
 .tm-about-box-2-title {
-  text-transform: lowercase;
+  text-transform: uppercase;
   text-align: left;
   margin-bottom: 30px;
 }
