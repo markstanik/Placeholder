@@ -27,15 +27,15 @@
                                         {% csrf_token %}
                                         <div class="tm-form-inner">
                                             <div class="form-group">
-                                                 <select class="form-control">
+                                                 <select name="selectedsize" class="form-control">
                                                      <option value="">-- Size of School -- </option>
                                                      <option value="5000">Small (<5000 students)</option>
-                                                    <option value="10,000">Medium (<10,000 students)</option>
-                                                    <option value="15,000">Large (<15,000 students)</option>
+                                                    <option value="10000">Medium (<10,000 students)</option>
+                                                    <option value="15000">Large (<15,000 students)</option>
                                                 </select> 
                                               </div>
                                               <div class="form-group">
-                                                <select class="form-control">
+                                                <select name="selectedstate" class="form-control">
                                                     <option value="">-- Location (State) -- </option>
                                                     <option value="AL">AL</option>
                                                     <option value="AK">AK</option>
@@ -90,7 +90,7 @@
                                                </select> 
                                             </div>
                                               <div class="form-group">
-                                                <select class="form-control">
+                                                <select name="selectedmajor" class="form-control">
                                                     <option value="">-- Majors/Programs -- </option>
                                                     <option value="Agriculture, Agriculture Operations, and Related Sciences">Agriculture, Agriculture Operations, and Related Sciences</option>
                                                     <option value="Architecture and Related Services">Architecture and Related Services</option>
@@ -135,12 +135,12 @@
                                                </select> 
                                             </div>
                                             <div class="form-group margin-bottom-0">
-                                                <select class="form-control">
+                                                <select name="selectedprice" class="form-control">
                                                      <option value="">-- Annual Tuition -- </option>
                                                      <option value="15000">$ (<$15,000)</option>
                                                     <option value="30000">$$ (<$30,000)</option>
                                                     <option value="45000">$$$ (<$45,000)</option>
-                                                    <option value="">$$$$ (>$45,000)</option>
+                                                    <option value="999999">$$$$ (>$45,000)</option>
                                                 </select> 
                                             </div>
                                         </div>							
@@ -183,7 +183,6 @@
          -->
             <!--End Featured Shit-->
 
-
             <!--Results-->
             <div class="section-margin-top">
                 <div class="row">				
@@ -193,204 +192,40 @@
                         <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
                     </div>
                 </div>
+                
                 <div class="row">
-                        <div class="tm-tours-box-1-extended">
+                    {% for item in school %}
+                    <div class="tm-tours-box-1-extended">
                             <div class="tm-tours-box-1-info">
                                 <div class="tm-tours-box-1-info-left">
-                                    <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
+                                    <p class="text-uppercase margin-bottom-20">{{item.institution}} </p>	
+                                    {% if item.website %}
+                                        <a href= "https://{{item.website}}" target="_blank"> {{item.website}} </a>
+                                    {% endif %}
                                 </div>
                                 <div class="tm-tours-box-1-info-right">
-                                    <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+                                    <p class="gray-text tours-1-description">
+                                        Total student body size: {{item.totalstudents}} <br>
+                                        Tuition (out of state): $ {{item.tuition_outstate}}	<br>
+                                    {% if item.tuition_instate %}
+                                        Tuition (in state): $ {{item.tuition_instate}}	
+                                    {% endif %}
+                                    </p>
                                 </div>							
                             </div>
                             <div class="tm-tours-box-1-link">
                                 <div class="tm-tours-box-1-link-left">
-                                    Duration: 8 days
+                                    {{item.city}}, {{item.state}}
                                 </div>
-                                <a href="#" class="tm-tours-box-1-link-right">
-                                    $2,200								
-                                </a>							
+                                
+                                    <form method="POST" action = "{% url 'info' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="numID" value="{{item.unitid}}">
+                                        <button type="submit" class="tm-tours-box-1-link-right" name="submit">More Info</button>
+                                    </form>							
                             </div>
                         </div>					
-                       
-                        <div class="tm-tours-box-1-extended">
-                            <div class="tm-tours-box-1-info">
-                                <div class="tm-tours-box-1-info-left">
-                                    <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                    <p class="gray-text">26 March 2084</p>
-                                </div>
-                                <div class="tm-tours-box-1-info-right">
-                                    <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                                </div>							
-                            </div>
-                            <div class="tm-tours-box-1-link">
-                                <div class="tm-tours-box-1-link-left">
-                                    Duration: 9 days
-                                </div>
-                                <a href="#" class="tm-tours-box-1-link-right">
-                                    $1,800								
-                                </a>							
-                            </div>
-                        </div>					
-                  
-                        <div class="tm-tours-box-1-extended">
-                            <div class="tm-tours-box-1-info">
-                                <div class="tm-tours-box-1-info-left">
-                                    <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                    <p class="gray-text">24 March 2084</p>
-                                </div>
-                                <div class="tm-tours-box-1-info-right">
-                                    <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                                </div>							
-                            </div>
-                            <div class="tm-tours-box-1-link">
-                                <div class="tm-tours-box-1-link-left">
-                                    Duration: 8 days
-                                </div>
-                                <a href="#" class="tm-tours-box-1-link-right">
-                                    $1,600								
-                                </a>							
-                            </div>
-                        </div>					
-                  
-                        <div class="tm-tours-box-1-extended">
-                            <div class="tm-tours-box-1-info">
-                                <div class="tm-tours-box-1-info-left">
-                                    <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                    <p class="gray-text">22 March 2084</p>
-                                </div>
-                                <div class="tm-tours-box-1-info-right">
-                                    <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                                </div>							
-                            </div>
-                            <div class="tm-tours-box-1-link">
-                                <div class="tm-tours-box-1-link-left">
-                                    Duration: 5 days
-                                </div>
-                                <a href="#" class="tm-tours-box-1-link-right">
-                                    $1,200								
-                                </a>							
-                            </div>
-                        </div>					
-                   
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 8 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $2,200								
-                            </a>							
-                        </div>
-                    </div>					
-                    
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                <p class="gray-text">26 March 2084</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 9 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $1,800								
-                            </a>							
-                        </div>
-                    </div>					
-              
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                <p class="gray-text">24 March 2084</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 8 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $1,600								
-                            </a>							
-                        </div>
-                    </div>					
-            
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                <p class="gray-text">22 March 2084</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 5 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $1,200								
-                            </a>							
-                        </div>
-                    </div>
-                    
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                <p class="gray-text">24 March 2084</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 8 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $1,600								
-                            </a>							
-                        </div>
-                    </div>					
-              
-                    <div class="tm-tours-box-1-extended">
-                        <div class="tm-tours-box-1-info">
-                            <div class="tm-tours-box-1-info-left">
-                                <p class="text-uppercase margin-bottom-20">Proin Gravida Nibhvel Lorem Quis Bind</p>	
-                                <p class="gray-text">22 March 2084</p>
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
-                                <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
-                            </div>							
-                        </div>
-                        <div class="tm-tours-box-1-link">
-                            <div class="tm-tours-box-1-link-left">
-                                Duration: 5 days
-                            </div>
-                            <a href="#" class="tm-tours-box-1-link-right">
-                                $1,200								
-                            </a>							
-                        </div>
-                    </div>
+                    {% endfor %}			
                 </div>		
             </div>
         </section>	
