@@ -2,9 +2,19 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from . import forms
+from . import models
 
 
 # Create your views here.
+
+def test(request):
+    thing="thing"
+    #things = models.ExtendedUser.objects.get(firstname="jfaksdl")
+    #things = models.Universities.objects.get(unitid=177834)
+    thing = models.Universities.objects.filter(state="NJ")
+
+    return render(request, "users/test.html", {"thing": thing})
+
 def login_user(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
