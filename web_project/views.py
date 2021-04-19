@@ -14,6 +14,45 @@ def results(request):
         selectedmajor=request.POST['selectedmajor']
         selectedstate=request.POST['selectedstate']
         selectedprice=int(request.POST['selectedprice'])
-        schools = models.Universities.objects.filter(totalstudents__lte=selectedsize).filter(state=selectedstate).filter(tuition_outstate__lte=selectedprice)
-        school=schools[:10]
+        schools = models.Universities.objects.exclude(tuition_outstate='').filter(state=selectedstate)
+        #print(selectedprice)
+        bounds = schools.filter(totalstudents__lte=selectedsize).filter(tuition_outstate__lte=selectedprice)
+        school=bounds[:10]
     return render(request, "users/listings.html", {"school": school})
+
+def info(request):
+    num=request.POST['numID']
+    college = models.Universities.objects.get(unitid=num)
+    women = round((college.total_women/college.totalstudents)*100)
+    black = round((college.total_black/college.totalstudents)*100)
+    hispanic = round((college.total_hispanic/college.totalstudents)*100)
+    pacific = round((college.total_pacific/college.totalstudents)*100)
+    urban = stats(college.urbanization)
+    return render(request, "users/view_info.html", {"college": college, "women": women, "black": black, "hispanic": hispanic, "pacific": pacific, "urban": urban})
+
+def stats(num):
+    if num==11:
+        return "City (Large)"
+    elif num==12:
+        return "City (Midsize)"
+    elif num==13:
+        return "City (Small)"
+    elif num==21:
+        return "Suburban (Large)"
+    elif num==22:
+        return "Suburban (Midsize)"
+    elif num==23:
+        return "Suburban (Small)"
+    elif num==31:
+        return "Town (Fringe)"
+    elif num==32:
+        return "Town (Distant)"
+    elif num==33:
+        return "Town (Remote)"
+    elif num==41:
+        return "Rural (Fringe)"
+    elif num==42:
+        return "Rural (Distant)"
+    elif num==43:
+        return "Rural (Remote)"
+    return None

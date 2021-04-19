@@ -140,7 +140,7 @@
                                                      <option value="15000">$ (<$15,000)</option>
                                                     <option value="30000">$$ (<$30,000)</option>
                                                     <option value="45000">$$$ (<$45,000)</option>
-                                                    <option value="">$$$$ (>$45,000)</option>
+                                                    <option value="999999">$$$$ (>$45,000)</option>
                                                 </select> 
                                             </div>
                                         </div>							
@@ -199,18 +199,30 @@
                             <div class="tm-tours-box-1-info">
                                 <div class="tm-tours-box-1-info-left">
                                     <p class="text-uppercase margin-bottom-20">{{item.institution}} </p>	
+                                    {% if item.website %}
+                                        <a href= "https://{{item.website}}" target="_blank"> {{item.website}} </a>
+                                    {% endif %}
                                 </div>
                                 <div class="tm-tours-box-1-info-right">
-                                    <p class="gray-text tours-1-description">Lorem quis bibendum auctor, nisi elit consequat ipsum, sec sagittis sem nibh id elit.</p>	
+                                    <p class="gray-text tours-1-description">
+                                        Total student body size: {{item.totalstudents}} <br>
+                                        Tuition (out of state): $ {{item.tuition_outstate}}	<br>
+                                    {% if item.tuition_instate %}
+                                        Tuition (in state): $ {{item.tuition_instate}}	
+                                    {% endif %}
+                                    </p>
                                 </div>							
                             </div>
                             <div class="tm-tours-box-1-link">
                                 <div class="tm-tours-box-1-link-left">
-                                    Size: {{item.totalstudents}}
+                                    {{item.city}}, {{item.state}}
                                 </div>
-                                <a href="#" class="tm-tours-box-1-link-right">
-                                    $ {{item.tuition_outstate}}								
-                                </a>							
+                                
+                                    <form method="POST" action = "{% url 'info' %}">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="numID" value="{{item.unitid}}">
+                                        <button type="submit" class="tm-tours-box-1-link-right" name="submit">More Info</button>
+                                    </form>							
                             </div>
                         </div>					
                     {% endfor %}			
