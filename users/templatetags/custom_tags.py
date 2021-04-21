@@ -1,7 +1,13 @@
 from django import template
+from django.template.defaultfilters import stringfilter
 from django.urls import reverse
 
 register = template.Library()
+
+@register.filter
+@stringfilter
+def imagething(num):
+    return "imgs."+num
 
 @register.filter('input_type')
 def input_type(ob):

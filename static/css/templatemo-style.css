@@ -334,7 +334,7 @@ body {
   height: 52px;
 }
 #hotelCarTabs li {
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 #hotelCarTabs > li > a {

@@ -1,0 +1,73 @@
+{% extends 'base_layout.html' %}
+{% block content %}
+{% load custom_tags %}
+{% load static %}
+<section class="container tm-home-section-1">
+    <div class = "row">
+		<div class="section-margin-top about-section">
+			<div class="row">				
+				<div class="tm-section-header">
+					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
+					<div class="col-lg-6 col-md-6 col-sm-6"><h2 class="tm-section-title">My Colleges</h2></div>
+					<div class="col-lg-3 col-md-3 col-sm-3"><hr></div>	
+				</div>
+			</div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class = "row">
+        <div class="col-lg-3">
+            <img src="{%static 'img/listings/1.png' %}" style="max-width: 250px;">
+        </div>
+        <div class="col-lg-3">
+            <div class="tm-home-box-1-2">
+                <div class="tm-about-box-2 margin-bottom-30">
+                    <div class="tm-about-box-2-text">
+                        <p class="tm-about-box-2-description">
+                            Location: {{college.city}}, {{college.state}} <br> 
+                            Total enrolled: {{college.totalstudents}} <br>
+                            Tuition (out of state): $ {{college.tuition_outstate}} <br>
+                            {% if college.tuition_instate %}
+                                Tuition (in state): $ {{college.tuition_instate}} <br>
+                            {% endif %}
+                            {% if college.website %}
+                            <a href= "https://{{college.website}}" target="_blank"> {{college.website}} </a>
+                            {% endif %}	
+                        </p>
+                    </div>		                
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="tm-home-box-1-2">
+                <div class="tm-about-box-2 margin-bottom-20">
+                    <div class="tm-about-box-2-text">
+                        <p class="tm-about-box-2-description">
+                            <a href="info.html">View More Info</a>
+                            <br>
+                            <a href="delete.html">Delete </a>                           
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="tm-section-header">
+            <div class="tm-home-box-1-center">
+                <form action= "{% url 'results' %}">
+                    <!-- {% csrf_token %} -->
+                    <input type="hidden" name="numID" value= "{{college.unitid}}">
+                    <div class="form-group tm-yellow-gradient-bg text-center" style="width:150px; height:50px; margin: auto;">
+                        <button type="submit" name="submit" class="tm-yellow-btn">Search For More</button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

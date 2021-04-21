@@ -1,6 +1,8 @@
 {% extends 'base_layout.html' %}
 {% block content %}
 {% load static%}
+{% static "" as baseUrl %}
+{% load custom_tags %}
 
 		<!-- gray bg -->	
         <section class="container tm-home-section-2" id="more">
@@ -184,7 +186,7 @@
             <!--End Featured Shit-->
 
             <!--Results-->
-            <div class="section-margin-top">
+            <div class="section-margin-top" id="searchresults">
                 <div class="row">				
                     <div class="tm-section-header">
                         <div class="col-lg-3 col-md-3 col-sm-3"><hr></div>
@@ -201,16 +203,18 @@
                                 <p class="text-uppercase margin-bottom-20"><h3>{{item.institution}} </h3></p>
                                 <br>
                                 {{item.city}}, {{item.state}}	
-                                
-                            </div>
-                            <div class="tm-tours-box-1-info-right">
+                                <br>
                                 <p class="gray-text tours-1-description">
                                     Total student body size: {{item.totalstudents}} <br>
                                     Tuition (out of state): $ {{item.tuition_outstate}}	<br>
                                 {% if item.tuition_instate %}
                                     Tuition (in state): $ {{item.tuition_instate}}	
                                 {% endif %}
-                                </p>
+                                </p>                                
+                            </div>
+                            <div class="tm-tours-box-1-info-right">
+
+                                <img src = "{{baseUrl}}img/listings/{{forloop.counter}}.png" style="max-width: 350px; max-height: 150px; margin:auto; display: block;">
                             </div>							
                         </div>
                         <div class="tm-tours-box-1-link">
